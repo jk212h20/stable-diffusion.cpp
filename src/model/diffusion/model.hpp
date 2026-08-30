@@ -109,7 +109,7 @@ struct MiniMaxH3DiffusionExtra {
     float video_sigma_shift                                       = 12.f;
     float audio_sigma_shift                                       = 3.f;
     // Negative when the outer sampler is not a single-evaluation Euler step.
-    float next_video_sigma                                        = -1.f;
+    float next_video_sigma = -1.f;
 };
 
 struct MiniT2IDiffusionExtra {
