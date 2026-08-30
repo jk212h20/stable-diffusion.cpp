@@ -370,11 +370,11 @@ namespace MiniMaxH3 {
             // matching PyTorch's reshape(B*S, 1, samples), and concatenate only
             // the completed normalized latents.
             const int64_t streams = waveform->ne[2] * waveform->ne[3];
-            waveform = ggml_reshape_3d(ctx->ggml_ctx,
-                                       waveform,
-                                       waveform->ne[0],
-                                       1,
-                                       streams);
+            waveform              = ggml_reshape_3d(ctx->ggml_ctx,
+                                                    waveform,
+                                                    waveform->ne[0],
+                                                    1,
+                                                    streams);
             ggml_tensor* stereo_z = nullptr;
             for (int64_t stream = 0; stream < streams; ++stream) {
                 auto mono = ggml_ext_slice(ctx->ggml_ctx, waveform, 2, stream, stream + 1);
